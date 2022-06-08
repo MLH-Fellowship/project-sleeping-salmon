@@ -14,9 +14,9 @@ def index():
 def haileyHobbies():
     return render_template('haileyHobbies.html', url=os.getenv("URL"), user=Hailey)
 
-@app.route('/ariaHobbies')
-def ariaHobbies():
-    return render_template('ariaHobbies.html', url=os.getenv("URL"), user=Aria)
+@app.route('/test')
+def test():
+    return render_template('child.html')
 
 # This is the User class that defines everything that will be inputted into the portfolio template
 class User:
@@ -75,38 +75,13 @@ HaileyWork.append(Work("Graphic Design Intern", "BU Spark!", \
     ["Developed creative concepts for merchandise design and marketing graphics that align with Spark! branding guidelines to promote brand awareness", \
     "Coordinated with 2+ other interns and supervisor weekly to brainstorm fresh solutions for current projects and review designs in real-time."]))
 HaileyHobby = []
-# Rock climbing, tennis, cooking
 
 HaileyHobby.append(Hobbies("Rock Climbing", "./static/img/RockClimbing.jpg"))
 HaileyHobby.append(Hobbies("Tennis", "./static/img/Tennis.jpg"))
 HaileyHobby.append(Hobbies("Cooking", "./static/img/Cooking.jpg"))
 
-# Digital Art, singing, baseball
-
 Hailey = User(HaileyName, HaileyPic, HaileyAbout, HaileyEducation, HaileyWork, HaileyHobby, "places")
-
-AriaName = "Aria Richardson"
-AriaPic = "./static/img/AriaPic.png"
-AriaAbout = "Hello! My name is Arianna and I am from Bowie, MD! I enjoy coding and creating digital media. I have skills in both graphic design and video production. Nice to meet you!"
-AriaEducation = Education("Rochester Institute of Technology", "Expected May 2024", "New Media Interactive Development")
-AriaWork = []
-AriaWork.append(Work("Equal Rights Amendment Coalition Social Media Internship", "", \
-    ["Internship with the ERA Coalition where I create social media content spreading awareness on the Equal Rights Amendment."]))
-AriaWork.append(Work("National Society of Black Engineers (NSBE) SEEK Program", "", \
-    ["Taught engineering concepts to elementary school kids."]))
-AriaWork.append(Work("Google Computer Science Summer Institute", "", \
-    ["A virtual summer program teaching students JavaScript sponsored by Google for graduating seniors interested in a career in computer science."]))
-AriaWork.append(Work("Communications Intern", "", \
-    ["Assisted in the redesign of my high school website", \
-    "Shot and edited photos and videos with Adobe software.", \
-    "Created promotional content representing the high school for prospective families and school social media(i.e video production, photos, reported on school current events)."]))
-AriaHobby = []
-AriaHobby.append(Hobbies("Digital Art", "./static/img/DigitalArt.jpg"))
-AriaHobby.append(Hobbies("Singing", "./static/img/Sing.jpg"))
-AriaHobby.append(Hobbies("Baseball", "./static/img/Baseball.jpg"))
-
-Aria = User(AriaName, AriaPic, AriaAbout, AriaEducation, AriaWork, AriaHobby, "places")
 
 
 # List of users that will be included in this portfolio
-users = [Hailey, Aria]
+users = [Hailey]
