@@ -4,20 +4,26 @@ body {
     font-family: "Urbanist", serif;
 }
 
+
+/* Navbar  */
+
 .navbar {
     background-color: white;
 }
 
 .navbar-brand {
     font-weight: 700;
-    font-size: 2.1em;
+    font-size: 2.5em;
     padding: 0% 3%;
 }
 
 .nav-item {
     padding: 0% 40%;
-    font-size: 1.8em;
+    font-size: 2em;
 }
+
+
+/* About */
 
 .about {
     display: flex;
@@ -42,6 +48,44 @@ body {
     padding: 20px;
     font-size: 2.5em;
 }
+
+
+/* Education */
+
+.education {
+    padding: 50px;
+    background-color: #DCE6FF;
+}
+
+.ed--containers {
+    padding: 30px;
+    margin: auto;
+}
+
+.ed--container div {
+    display: inline-block;
+    width: 48%;
+    margin: auto;
+    line-height: 100%;
+}
+
+.education .ed--heading {
+    font-weight: bold;
+    font-size: 2.5em;
+}
+
+.ed--container .ed--left h1 {
+    font-weight: bold;
+    font-size: 2em;
+    color: #FF6C6C;
+}
+
+.ed--container p {
+    font-size: 1.5em;
+}
+
+
+/* Footer */
 
 footer {
     background-color:#f1f1f1;
