@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% import "navbar.html" as navbar %}
+{% import "footer.html" as footer %}
 
 <!-- I forgot what this was -->
 {% block title %}test{% endblock %}
@@ -13,9 +14,9 @@
 {% endblock %}
 
 {% block content %}
-    {{ super() }}
+    <h1>This is the hobbies page</h1>
 {% endblock %}
 
 {% block footer %}
-    {{ super() }}
+    {{ footer.footer() }}
 {% endblock %}

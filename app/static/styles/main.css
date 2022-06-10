@@ -1,5 +1,6 @@
 body {
     width: auto;
+    color: #2C2A27;
     font-family: "Urbanist", serif;
 }
 
@@ -16,4 +17,26 @@ body {
 .nav-item {
     padding: 0% 40%;
     font-size: 1.5em;
+}
+
+footer {
+    background-color:#f1f1f1;
+    padding: 10px 0px;
+}
+
+footer > .footer--items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer--items > .footer--words {
+    font-size: 1.5em;
+    margin: auto;
+}
+
+.footer--items > .footer--img {
+    width: 100px;
+    height: auto;
+    padding-right: 17%;
 }
