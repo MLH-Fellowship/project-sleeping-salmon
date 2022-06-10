@@ -1,0 +1,17 @@
+{% macro education(school, grad, major, class) %}
+    <div class="education">
+        <h1 class="ed--heading">Education</h1>
+        <div class="ed--containers">
+            <div class="ed--container">
+                <div class="ed--left">
+                    <h1>{{ school }}</h1>
+                    <p>{{ major }}</p>
+                </div>
+                <div class="ed--right">
+                    <p>{{ grad }}</p>
+                    <p>{{ class }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{%- endmacro %}

@@ -2,6 +2,7 @@
 {% import "navbar.html" as navbar %}
 {% import "footer.html" as footer %}
 {% import "about.html" as about %}
+{% import "education.html" as education %}
 
 {% block title %}test{% endblock %}
 
@@ -15,6 +16,15 @@
 
 {% block about %}
     {{ about.about("Hailey Moon", "../static/img/Headshot.png")}}
+{% endblock %}
+
+{% block education %}
+    {{ education.education(
+        "Boston University",
+        "Expected May 2024",
+        "Computer Science",
+        "Rising Junior"
+    ) }}
 {% endblock %}
 
 {% block content %}
