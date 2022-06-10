@@ -1,0 +1,8 @@
+{% macro about(name, img) %}
+    <div class="about">
+        <h1 class="about--words">Hello, Nice to Meet You! <br/>
+            My Name is {{ name }}</h1>
+        <img class="about--img" src={{ img }}
+        alt="Profile Picture" />
+    </div>
+{%- endmacro %}
