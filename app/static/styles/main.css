@@ -10,18 +10,42 @@ body {
 
 .navbar-brand {
     font-weight: 700;
-    font-size: 1.9em;
+    font-size: 2.1em;
     padding: 0% 3%;
 }
 
 .nav-item {
     padding: 0% 40%;
-    font-size: 1.5em;
+    font-size: 1.8em;
+}
+
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0% 15%;
+    background-image: url("../img/CircleImage.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 450px;
+}
+
+.about .about--img {
+    max-width: 50%;
+    min-width: 300px;
+    height: auto;
+    padding: 50px;
+}
+
+.about .about--words {
+    text-align: left;
+    padding: 20px;
+    font-size: 2.5em;
 }
 
 footer {
     background-color:#f1f1f1;
-    padding: 10px 0px;
+    padding: 2% 0px;
 }
 
 footer > .footer--items {
@@ -30,13 +54,13 @@ footer > .footer--items {
     align-items: center;
 }
 
-.footer--items > .footer--words {
+.footer--items .footer--words {
     font-size: 1.5em;
     margin: auto;
 }
 
-.footer--items > .footer--img {
-    width: 100px;
+.footer--items .footer--img {
+    width: 60px;
     height: auto;
-    padding-right: 17%;
+    margin-right: 170px;
 }
