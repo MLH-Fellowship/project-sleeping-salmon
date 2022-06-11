@@ -5,7 +5,11 @@
         <h1 class="work--heading">Work Experience</h1>
         <div class="work--items">
             {% for item in work %}
-                {{ experience.experience(item.img, item.title, item.company, item.description) }}
+                {% if loop.index is even %}
+                    {{ experience.experience(item.img, item.title, item.company, item.description, 2) }}
+                {% else %}
+                    {{ experience.experience(item.img, item.title, item.company, item.description, 1) }}
+                {% endif %}
             {% endfor %}
         </div>
     </div>

@@ -23,7 +23,7 @@ class User:
         self.hobbies = hobbies
         self.places = places
 
-# Education class is composed of school (school name), grad (graduation date), and major (area of study)
+# Education class is composed of school (school name), grad (graduation date), major (area of study), and year (ex. freshman)
 class Education:
     def __init__(self, school, grad, major, year):
         self.school = school
@@ -31,7 +31,7 @@ class Education:
         self.major = major
         self.year = year
 
-# Experience class is composed of title (job title), company, and description
+# Experience class is composed of an image of work example, title (job title), company, and description
 class Experience:
     def __init__(self, img, title, company, description):
         self.img = img
@@ -39,7 +39,7 @@ class Experience:
         self.company = company
         self.description = description
 
-# Hobby class is composed of title (hobby name), description of the hobby, and img (source to the image)
+# Hobby class is composed of title (hobby name), description of the hobby, and an image
 class Hobby:
     def __init__(self, title, description, img):
         self.title = title
@@ -54,12 +54,15 @@ class Places:
         self.country = country
 
 
-# We've defined all the classes we'll use above, so from here on we'll make instances of the classes to break down a user's data
-# and input it into the Jinja template for it to be formatted
+# We've defined all the classes we'll use above, so from here on we'll make instances of the classes to break down a user's data into these classes
+# This way, we can input it into the Jinja template for it to be formatted!
 
 yourName = "Hailey Moon"
+
 yourPic = "../static/img/Headshot.png"
+
 yourEd = Education("Boston University", "Expected May 2024", "Computer Science", "Junior")
+
 yourWork = []
 yourWork.append(Experience(
     "../static/img/Cashmate.png",
@@ -82,6 +85,7 @@ yourWork.append(Experience(
     "Developed creative concepts for merchandise design and marketing graphics that align with BU Spark!, a technology incubator and experimental learning at Boston University."
     )
 )
+
 yourHobbies = []
 yourHobbies.append(Hobby(
     "Rock Climbing",
@@ -107,4 +111,5 @@ yourHobbies.append(Hobby(
     )
 )
 
+# This is the instance of "you", everything that will be on the portfolio is written in this object
 you = User(yourName, yourPic, yourEd, yourWork, yourHobbies, "places")
