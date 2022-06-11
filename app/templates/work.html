@@ -1,0 +1,12 @@
+{% import "experience.html" as experience %}
+
+{% macro work(work) %}
+    <div class="work">
+        <h1 class="work--heading">Work Experience</h1>
+        <div class="work--items">
+            {% for item in work %}
+                {{ experience.experience(item.img, item.title, item.company, item.description) }}
+            {% endfor %}
+        </div>
+    </div>
+{%- endmacro %}

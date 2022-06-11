@@ -1,4 +1,4 @@
-{% macro education(school, grad, major, class) %}
+{% macro education(school, grad, major, year) %}
     <div class="education">
         <h1 class="ed--heading">Education</h1>
         <div class="ed--containers">
@@ -9,7 +9,7 @@
                 </div>
                 <div class="ed--right">
                     <p>{{ grad }}</p>
-                    <p>{{ class }}</p>
+                    <p>{{ year }}</p>
                 </div>
             </div>
         </div>

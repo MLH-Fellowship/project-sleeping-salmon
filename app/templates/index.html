@@ -3,6 +3,7 @@
 {% import "footer.html" as footer %}
 {% import "about.html" as about %}
 {% import "education.html" as education %}
+{% import "work.html" as work %}
 
 {% block title %}test{% endblock %}
 
@@ -15,22 +16,26 @@
 {% endblock %}
 
 {% block about %}
-    {{ about.about("Hailey Moon", "../static/img/Headshot.png")}}
+    {{ about.about(
+        user.name,
+        user.pic
+        )
+     }}
 {% endblock %}
 
 {% block education %}
     {{ education.education(
-        "Boston University",
-        "Expected May 2024",
-        "Computer Science",
-        "Rising Junior"
-    ) }}
+        user.education.school,
+        user.education.grad,
+        user.education.major,
+        user.education.year
+        )
+    }}
 {% endblock %}
 
-{% block content %}
-    <div id="work">
-        {{ super() }}
-    </div>
+{% block work %}
+<!-- what to input here? -->
+    {{ work.work(user.work) }}
 {% endblock %}
 
 {% block footer %}

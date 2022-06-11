@@ -19,7 +19,7 @@ body {
 
 .nav-item {
     padding: 0% 40%;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 
@@ -58,7 +58,7 @@ body {
 }
 
 .ed--containers {
-    padding: 30px;
+    padding: 50px;
     margin: auto;
 }
 
@@ -77,13 +77,60 @@ body {
 .ed--container .ed--left h1 {
     font-weight: bold;
     font-size: 2em;
-    color: #FF6C6C;
 }
 
 .ed--container p {
     font-size: 1.5em;
 }
 
+/* Work */
+
+.work {
+    padding: 50px;
+}
+
+.work .work--heading {
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+.work .work--items {
+    padding: 50px;
+}
+
+.experience { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5%;
+}
+
+.exp--left .exp--img {
+    width: 90%;
+    height: auto;
+}
+
+.exp--right {
+    width: 50%;
+}
+
+.exp--right .exp--info {
+    margin: 15%;
+}
+
+.exp--right .exp--title {
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.exp--right .exp--company {
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.exp--right .exp--description {
+    font-size: 1.5em;
+}
 
 /* Footer */
 

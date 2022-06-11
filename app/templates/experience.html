@@ -1,0 +1,14 @@
+{% macro experience(img, title, company, description)%}
+    <div class="experience">
+        <div class="exp--left">
+            <img class="exp--img" src={{ img }} alt="Experience Image" />
+        </div>
+        <div class="exp--right">
+            <div class="exp--info">
+                <h1 class="exp--title">{{ title }}</h1>
+                <h1 class="exp--company">{{ company }}</h1>
+                <p class="exp--description">{{ description }}</p>
+            </div>
+        </div>
+    </div>
+{%- endmacro %}
