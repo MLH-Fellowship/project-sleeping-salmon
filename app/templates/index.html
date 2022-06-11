@@ -5,8 +5,6 @@
 {% import "education.html" as education %}
 {% import "work.html" as work %}
 
-{% block title %}test{% endblock %}
-
 {% block head %}
     {{ super() }}
 {% endblock %}
@@ -34,8 +32,11 @@
 {% endblock %}
 
 {% block work %}
-<!-- what to input here? -->
     {{ work.work(user.work) }}
+{% endblock %}
+
+{% block content %}
+    <!-- Leave empty -->
 {% endblock %}
 
 {% block footer %}

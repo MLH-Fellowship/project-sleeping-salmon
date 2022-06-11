@@ -5,14 +5,13 @@ from dotenv import load_dotenv
 load_dotenv()
 app = Flask(__name__)
 
-
 @app.route('/')
 def index():
-    return render_template('index.html', title="Personal Portfolio", url=os.getenv("URL"), user=Hailey)
+    return render_template('index.html', title="Personal Portfolio", url=os.getenv("URL"), user=you)
 
 @app.route('/hobbies')
 def hobbies():
-    return render_template('hobbies.html', url=os.getenv("URL"), user=Hailey)
+    return render_template('hobbies.html', title="Personal Portfolio", url=os.getenv("URL"), user=you)
 
 # This is the User class that defines everything that will be inputted into the portfolio template
 class User:
@@ -40,10 +39,11 @@ class Experience:
         self.company = company
         self.description = description
 
-# Hobbies class is composed of hobby (hobby name), description of the hobby, and img (source to the image)
-class Hobbies:
-    def __init__(self, hobby, img):
-        self.hobby = hobby
+# Hobby class is composed of title (hobby name), description of the hobby, and img (source to the image)
+class Hobby:
+    def __init__(self, title, description, img):
+        self.title = title
+        self.description = description
         self.img = img
 
 # Map class is compposed of the city and country of the location.
@@ -59,7 +59,7 @@ class Places:
 
 yourName = "Hailey Moon"
 yourPic = "../static/img/Headshot.png"
-yourEd = Education("Boston University", "Expected May 2024", "Computer Science", "Rising Junior")
+yourEd = Education("Boston University", "Expected May 2024", "Computer Science", "Junior")
 yourWork = []
 yourWork.append(Experience(
     "../static/img/Cashmate.png",
@@ -82,9 +82,29 @@ yourWork.append(Experience(
     "Developed creative concepts for merchandise design and marketing graphics that align with BU Spark!, a technology incubator and experimental learning at Boston University."
     )
 )
-yourHobby = []
-yourHobby.append(Hobbies("Rock Climbing", "./static/img/RockClimbing.jpg"))
-yourHobby.append(Hobbies("Tennis", "./static/img/Tennis.jpg"))
-yourHobby.append(Hobbies("Cooking", "./static/img/Cooking.jpg"))
+yourHobbies = []
+yourHobbies.append(Hobby(
+    "Rock Climbing",
+    "First out of curiosity as to why all my friends were suddenly into rock climbing, I followed them to the gym one day. \
+    A lot of things were a surprise (such as the fact that there was no rope to hold me up!), but above all that I was hooked after that day. \
+    The versatility of skill, the intricate and subtle control, the social problem solving, and more are some reasons I'm addicted.",
+    "../static/img/Rock-Climbing.png"
+    )
+)
+yourHobbies.append(Hobby(
+    "Cooking",
+    "I'll admit, I've fallen prey to the temptation of delivery apps many days a semester. But even so, I do enjoy cooking. \
+    Something about the act makes me present and clear-headed. I'll also have to admit that I'm not a good cook, though.",
+    "../static/img/Cooking.png"
+    )
+)
+yourHobbies.append(Hobby(
+    "Music",
+    "I love everything relating to music. I love playing it, listening to it, experiencing it, sharing it, and even writing it sometimes. \
+    Don't let the picture of a piano fool you though, my taste in music isn't exclusively classic. Recently I've gotten into R&B, hyperpop, \
+    metal, and indie.",
+    "../static/img/Music.png"
+    )
+)
 
-Hailey = User(yourName, yourPic, yourEd, yourWork, yourHobby, "places")
+you = User(yourName, yourPic, yourEd, yourWork, yourHobbies, "places")
