@@ -83,26 +83,28 @@ body {
     font-size: 1.5em;
 }
 
-/* Work */
 
-.work {
-    padding: 50px;
-}
+/* Work */
 
 .work .work--heading {
     font-size: 2.5em;
     font-weight: bold;
-}
-
-.work .work--items {
-    padding: 50px;
+    padding: 50px 50px 0px 50px;
 }
 
 .experience { 
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 5%;
+    padding: 50px;
+}
+
+.bg1 {
+    background-color: #fff;
+}
+
+.bg2 {
+    background-color: #DCE6FF;
 }
 
 .exp--left .exp--img {
