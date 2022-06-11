@@ -132,6 +132,34 @@ body {
     font-size: 1.5em;
 }
 
+
+/* Hobbies */
+
+.hobby div {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.hobby .hobby--img {
+    width: auto;
+}
+
+.hobby .hobby--words {
+    padding: 150px;
+    width: 51.83%;
+}
+
+.hobby--words h1 {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.hobby--words p {
+    font-size: 1.5em;
+}
+
 /* Footer */
 
 footer {

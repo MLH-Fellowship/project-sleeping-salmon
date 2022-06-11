@@ -27,7 +27,6 @@
 
     <div id="about">
         {% block about %}
-        <h1>This is the default about section</h1>
         {% endblock %}
     </div>
    
@@ -41,9 +40,14 @@
         {% endblock %}
     </div>
 
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
     <div id="footer">
         {% block footer %}
-        <p>This is the default footer section</p>
+        <p>This is the default footer</p>
         {% endblock %}
     </div>
 </body>
