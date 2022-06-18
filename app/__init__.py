@@ -85,6 +85,7 @@ yourWork.append(Experience(
     "Developed creative concepts for merchandise design and marketing graphics that align with BU Spark!, a technology incubator and experimental learning at Boston University."
     )
 )
+yourWork.append(Experience("", "job", "company", "descrp"))
 
 yourHobbies = []
 yourHobbies.append(Hobby(
