@@ -55,13 +55,13 @@ def get_time_line_post():
         ]
     }
 
-# @app.route("/api/timeline_post/<id>", methods=['DELETE'])
-# def delete_time_line_post(id):
-#     post = timeline_posts.query.get(id)
-#     mydb.session.delete(post)
-#     mydb.session.commit()
-
-#     return "successfully deleted"
+@app.route("/api/timeline_post/<int:id>", methods=['DELETE'])
+# @app.route("/api/timeline_post?id=<int:id>", methods=['DELETE'])
+def delete_time_line_post(id):
+    qry=TimelinePost.delete().where (TimelinePost.id==id)
+    qry.execute()
+    sid = str(id)
+    return ("successfully deleted post #" + sid + "\n")
 
 # This is the User class that defines everything that will be inputted into the portfolio template
 class User:
