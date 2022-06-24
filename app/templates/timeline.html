@@ -48,6 +48,8 @@
     <script>
         const url = 'http://localhost:5000/api/timeline_post'
         const posts = document.getElementById('posts');
+        
+        // When window loads, get all the posts from api
         window.onload = getPosts(url);
         async function getPosts(url) {
             const response = await fetch(url);
@@ -55,6 +57,7 @@
             show(data.timeline_posts)
         }
 
+        // function to turn the data in array format into an html table
         function show(data) {
             console.log(data);
             let tab = 
@@ -75,6 +78,7 @@
         posts.innerHTML = tab;
         }
 
+        // POST request that sends every time the submit button is pressed
         const form = document.getElementById('form');
         form.addEventListener('submit', function(e) {
             e.preventDefault()
