@@ -46,7 +46,7 @@
 
 {% block js %}
     <script>
-        const url = 'http://127.0.0.1:5000/api/timeline_post'
+        const url = 'http://localhost:5000/api/timeline_post'
         const posts = document.getElementById('posts');
         window.onload = getPosts(url);
         async function getPosts(url) {

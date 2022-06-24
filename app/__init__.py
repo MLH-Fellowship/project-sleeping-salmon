@@ -60,7 +60,6 @@ def get_time_line_post():
     }
 
 @app.route("/api/timeline_post/<int:id>", methods=['DELETE'])
-# @app.route("/api/timeline_post?id=<int:id>", methods=['DELETE'])
 def delete_time_line_post(id):
     qry=TimelinePost.delete().where (TimelinePost.id==id)
     qry.execute()
