@@ -19,7 +19,7 @@ body {
 
 .nav-item {
     padding: 0% 40%;
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
 
 
@@ -46,7 +46,7 @@ body {
 .about .about--words {
     text-align: left;
     padding: 20px;
-    font-size: 2.5em;
+    font-size: 2.2em;
 }
 
 
@@ -71,23 +71,23 @@ body {
 
 .education .ed--heading {
     font-weight: bold;
-    font-size: 2.5em;
+    font-size: 2.2em;
 }
 
 .ed--container .ed--left h1 {
     font-weight: bold;
-    font-size: 2em;
+    font-size: 1.8em;
 }
 
 .ed--container p {
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
 
 
 /* Work */
 
 .work .work--heading {
-    font-size: 2.5em;
+    font-size: 2.2em;
     font-weight: bold;
     padding: 50px 50px 0px 50px;
 }
@@ -122,16 +122,16 @@ body {
 
 .exp--right .exp--title {
     font-weight: bold;
-    font-size: 2em;
+    font-size: 1.8em;
 }
 
 .exp--right .exp--company {
     font-weight: bold;
-    font-size: 2em;
+    font-size: 1.8em;
 }
 
 .exp--right .exp--description {
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 
 
@@ -154,13 +154,54 @@ body {
 }
 
 .hobby--words h1 {
-    font-size: 2em;
+    font-size: 1.8em;
     font-weight: bold;
 }
 
 .hobby--words p {
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
+
+
+/* Timeline */
+
+#form {
+    padding: 50px 0;
+    margin: auto;
+    width: 50%;
+    font-size: 1.2em;
+}
+
+form > div > label{
+    /* border: red solid; */
+    padding: 5px 10px;
+}
+
+form > button {
+    margin: 10px 0px;
+    background-color: #AD86FF!important;
+    border: solid 2px #AD86FF!important;
+}
+
+#posts {
+    width: 50%;
+    margin: auto;
+    margin-bottom: 50px;
+    font-size: 1.2em;
+}
+
+#posts, #posts th, #posts td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#posts th, #posts td {
+    padding: 5px;
+}
+
+tr:hover {
+    background-color: #DCE6FF;
+  }
 
 /* Footer */
 
@@ -176,7 +217,7 @@ footer > .footer--items {
 }
 
 .footer--items .footer--words {
-    font-size: 1.5em;
+    font-size: 1.2em;
     margin: auto;
 }
 
