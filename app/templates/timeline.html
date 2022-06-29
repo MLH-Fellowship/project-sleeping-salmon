@@ -28,7 +28,7 @@
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
     </div>
     <div class="form-group">
         <label for="exampleInputPassword1">Content</label>
@@ -48,7 +48,7 @@
     <script>
         const url = '/api/timeline_post'
         const posts = document.getElementById('posts');
-        
+
         // When window loads, get all the posts from api
         window.onload = getPosts(url);
         async function getPosts(url) {
@@ -59,8 +59,8 @@
 
         // function to turn the data in array format into an html table
         function show(data) {
-            console.log(data);
-            let tab = 
+            //console.log(data);
+            let tab =
                 `<tr>
                 <th>Name</th>
                 <th>Email</th>
@@ -68,10 +68,10 @@
                 <th>Created At</th>
                 </tr>`;
             for (let r of data) {
-                tab += `<tr> 
+                tab += `<tr>
                 <td>${r.name} </td>
                 <td>${r.email}</td>
-                <td>${r.content}</td>   
+                <td>${r.content}</td>
                 <td>${r.created_at}</td>
                 </tr>`;
             }
@@ -82,17 +82,36 @@
         const form = document.getElementById('form');
         form.addEventListener('submit', function(e) {
             e.preventDefault()
+            const name=form.elements[0].value
+            const email=form.elements[1].value
+            const content=form.elements[2].value
+            const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+            if(!name){
+            alert('Invalid name');
+            }
+            else if (!email.match(validRegex)) {
+              alert('Invalid email')
+            }
+            else if (!content) {
+              alert('Invalid content')
+            }
+
+            else {
+
             const payload = new FormData(form);
+
             fetch(url, {
                 method: 'POST',
                 body: payload,
             })
             .then(res => res.json())
             .then(data => console.log(data))
-            .catch(err => console.log(err))
+            //.catch(err => console.log(err))
 
             getPosts(url);
+              }
         })
+
     </script>
 {% endblock %}
-
