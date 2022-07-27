@@ -1,22 +1,83 @@
+from crypt import methods
 import os
+
 from flask import Flask, render_template, request
 from dotenv import load_dotenv
+from playhouse.shortcuts import model_to_dict
+from peewee import *
+import datetime
+import regex as re
 
 load_dotenv()
 app = Flask(__name__)
 
 
+
+if os.getenv("TESTING")=="true":
+    print("Running in test mode")
+    mydb= SqliteDatabase('file:memory?mode=memory&cache=shared', uri=True)
+else:
+    mydb = MySQLDatabase(os.getenv("MYSQL_DATABASE"),
+        user=os.getenv("MYSQL_USER"),
+        password=os.getenv("MYSQL_PASSWORD"),
+        host=os.getenv("MYSQL_HOST"),
+        port=3306
+    )
+    
+
+
+print(mydb)
+class TimelinePost(Model):
+    name = CharField()
+    email = CharField()
+    content = TextField()
+    created_at = DateTimeField(default=datetime.datetime.now)
+
+    class Meta:
+        database = mydb
+mydb.connect()
+mydb.create_tables([TimelinePost])
+
 @app.route('/')
 def index():
     return render_template('index.html', title="MLH Fellow", url=os.getenv("URL"), users=users)
 
-@app.route('/haileyHobbies')
-def haileyHobbies():
-    return render_template('haileyHobbies.html', url=os.getenv("URL"), user=Hailey)
 
 @app.route('/ariaHobbies')
 def ariaHobbies():
     return render_template('ariaHobbies.html', url=os.getenv("URL"), user=Aria)
+
+@app.route('/api/timeline_post', methods=['POST'])
+def post_time_linepost():
+
+    name = request.form['name']
+    email = request.form['email']
+    content = request.form['content']
+
+    regex = r'\b[A-Za-z0-9.%+-]+@[A-Za-z0-9.-]+.[A-Z|a-z]{2,}\b'
+    if not request.form['name']:
+        return "Invalid name", 400
+    elif not (re.fullmatch(regex, request.form['email'])):
+        return "Invalid email", 400
+    elif not request.form['content']:
+        return "Invalid content", 400
+    else:
+        timeline_post = TimelinePost.create(name=name, email=email, content=content)
+        return model_to_dict(timeline_post)
+
+@app.route('/api/timeline_post', methods=['GET'])
+def get_time_line_post():
+    return { 
+        'timeline_posts': [
+            model_to_dict(p)
+            for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())
+        ]
+    }
+
+@app.route('/timeline', methods=["POST", "GET"])
+def timeline():
+    return render_template('timeline.html', title="Timeline")
+
 
 # This is the User class that defines everything that will be inputted into the portfolio template
 class User:
@@ -58,34 +119,8 @@ class Places:
 
 
 # We've defined all the classes we'll use above, so from here on we'll make instances of the classes to break down a user's data
-# and input it into the Jinja template for it to be formatted
-
-HaileyName = "Hailey Moon"
-HaileyPic = "./static/img/HaileyPic.png"
-HaileyAbout = "Hi there! My name is Hailey and I am from South Korea and Boston, MA. I am passionate about the intersection of design and computer science, and I am always looking for opportunities to learn!"
-HaileyEducation = Education("Boston University", "Expected May 2024", "Computer Science")
-HaileyWork = []
-HaileyWork.append(Work("UI/UX Designer", "Cashmate", \
-    ["Conducted user research, problem validation, solution validation, created customer personas, 10 user stories, and user flows to plan for end-to-end app development and deployment by the end of the semester.", \
-    "Designed typography, assets, low-fidelity, and high-fidelity wireframes using Figma for an IOS mobile application which used Firebase for backend and React Native for frontend."]))
-HaileyWork.append(Work("Design Head", "BostonHacks", \
-    ["Developed 6 unique website designs, 20+ marketing materials, and 9+ social media graphics on Figma by utilizing the theme colors and assets to establish a clear brand identity.", \
-    "Lead a team of 8 designers and initiated communications with 4 other internal team heads to receive tasks, request information, and delegate work to prepare for 2 hybrid hackathons per year."]))
-HaileyWork.append(Work("Graphic Design Intern", "BU Spark!", \
-    ["Developed creative concepts for merchandise design and marketing graphics that align with Spark! branding guidelines to promote brand awareness", \
-    "Coordinated with 2+ other interns and supervisor weekly to brainstorm fresh solutions for current projects and review designs in real-time."]))
-HaileyHobby = []
-# Rock climbing, tennis, cooking
-
-HaileyHobby.append(Hobbies("Rock Climbing", "./static/img/RockClimbing.jpg"))
-HaileyHobby.append(Hobbies("Tennis", "./static/img/Tennis.jpg"))
-HaileyHobby.append(Hobbies("Cooking", "./static/img/Cooking.jpg"))
-
-# Digital Art, singing, baseball
-
-Hailey = User(HaileyName, HaileyPic, HaileyAbout, HaileyEducation, HaileyWork, HaileyHobby, "places")
-
-AriaName = "Aria Richardson"
+#
+AriaName = "Arianna Richardson"
 AriaPic = "./static/img/AriaPic.png"
 AriaAbout = "Hello! My name is Arianna and I am from Bowie, MD! I enjoy coding and creating digital media. I have skills in both graphic design and video production. Nice to meet you!"
 AriaEducation = Education("Rochester Institute of Technology", "Expected May 2024", "New Media Interactive Development")
@@ -109,4 +144,4 @@ Aria = User(AriaName, AriaPic, AriaAbout, AriaEducation, AriaWork, AriaHobby, "p
 
 
 # List of users that will be included in this portfolio
-users = [Hailey, Aria]
+users = [Aria]
